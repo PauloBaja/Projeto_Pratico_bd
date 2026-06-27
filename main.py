@@ -7,7 +7,9 @@ def rodar_teste_crud():
     # 1. Abre a sessão com o banco
     db = SessionLocal()
     
+    print(f"#################################################")
     print("Testando o CRUD de Usuários...")
+    print(f"-------------------------------------------------")
     cpf_teste = Decimal("1234567890123")
     
     try:
@@ -20,21 +22,28 @@ def rodar_teste_crud():
         
         # R - Read
         buscado = UsuarioRepository.get_by_cpf(db, cpf_teste)
-        print(f" [READ] Usuário buscado no banco: {buscado.nome} (Login: {buscado.login})")
+        print(f"-------------------------------------------------")
+        print(f"[READ] Usuário buscado no banco: {buscado.nome} (Login: {buscado.login})")
         
         # U - Update
         atualizado = UsuarioRepository.update(db, cpf_teste, nome="Paulo B. Medeiros")
+        print(f"-------------------------------------------------")
         print(f"[UPDATE] Nome atualizado para: {atualizado.nome}")
         
         # D - Delete
         removido = UsuarioRepository.delete(db, cpf_teste)
+        print(f"-------------------------------------------------")
         if removido:
-            print(" [DELETE] Usuário de teste removido com sucesso!")
+            print("[DELETE] Usuário de teste removido com sucesso!")
             
     except Exception as e:
         print(f" Erro durante o teste do CRUD: {e}")
     finally:
         db.close()
+    
+        print(f"-------------------------------------------------")
+        print(f"Fim do teste do CRUD de Usuários...")
+        print(f"#################################################")
 
 if __name__ == "__main__":
     rodar_teste_crud()
