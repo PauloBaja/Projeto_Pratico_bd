@@ -17,7 +17,7 @@ class UsuarioRepository:
         )
         db.add(novo_usuario)
         db.commit()
-        db.refresh(novo_usuario) # Atualiza o objeto com os dados salvos do banco
+        db.refresh(novo_usuario) 
         return novo_usuario
 
     @staticmethod
