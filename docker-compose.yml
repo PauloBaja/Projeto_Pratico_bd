@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: supersecretpassword
+      POSTGRES_DB: universidade_db
+    ports:
+      - "5433:5432"
+    volumes:
+      # O Postgres executa automaticamente qualquer script .sql dentro desta pasta ao iniciar
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql

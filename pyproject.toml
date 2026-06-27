@@ -1,0 +1,21 @@
+[project]
+name = "projeto-ed"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Paulo Baja", email = "paulobajamedeiros@gmail.com"}
+]
+requires-python = ">=3.12"
+dependencies = [
+    "sqlalchemy (>=2.0.51,<3.0.0)",
+    "psycopg2-binary (>=2.9.12,<3.0.0)"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "sqlacodegen (>=3.0.0rc1)" 
+]
